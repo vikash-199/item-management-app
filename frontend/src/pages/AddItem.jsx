@@ -49,7 +49,6 @@ export default function AddItem() {
           ➕ Add New Item
         </h2>
 
-        {/* Name */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Item Name
@@ -63,7 +62,6 @@ export default function AddItem() {
           />
         </div>
 
-        {/* Type */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Item Type
@@ -77,7 +75,6 @@ export default function AddItem() {
           />
         </div>
 
-        {/* Description */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Description
@@ -91,7 +88,6 @@ export default function AddItem() {
           />
         </div>
 
-        {/* Cover Image */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Cover Image
@@ -111,7 +107,6 @@ export default function AddItem() {
           )}
         </div>
 
-        {/* Additional Images */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Additional Images
@@ -137,7 +132,6 @@ export default function AddItem() {
           )}
         </div>
 
-        {/* Submit Button */}
         <button
           type="submit"
           disabled={loading}

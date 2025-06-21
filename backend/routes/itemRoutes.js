@@ -9,7 +9,6 @@ const {
 
 const router = express.Router();
 
-// Define storage for uploaded files
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     const uploadPath = path.join(__dirname, "../uploads");
@@ -21,7 +20,6 @@ const storage = multer.diskStorage({
   },
 });
 
-// Multer middleware
 const upload = multer({ storage });
 
 // Routes
