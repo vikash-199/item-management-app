@@ -24,5 +24,7 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Uploads (optional: if you don’t want images committed)
-backend/uploads/
+# Ignore uploaded image files, but keep the uploads/ folder
+backend/uploads/*
+!backend/uploads/.gitkeep
+
