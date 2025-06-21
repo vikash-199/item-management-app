@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +10,7 @@ export default function ViewItems() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/items")
+      .get(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/api/items`)
       .then((res) => setItems(res.data));
   }, []);
 
@@ -17,10 +18,13 @@ export default function ViewItems() {
     const userEmail = prompt("Enter your email to enquire:");
     if (!userEmail) return;
 
-    await axios.post("http://localhost:5000/api/items/enquire", {
-      itemName: selected.name,
-      userEmail,
-    });
+    await axios.post(
+      `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/api/items/enquire`,
+      {
+        itemName: selected.name,
+        userEmail,
+      }
+    );
 
     alert("📩 Enquiry sent successfully!");
   };
@@ -48,7 +52,9 @@ export default function ViewItems() {
               className="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer hover:scale-[1.02] transition"
             >
               <img
-                src={`http://localhost:5000/uploads/${item.coverImage}`}
+                src={`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/uploads/${
+                  item.coverImage
+                }`}
                 alt={item.name}
                 className="w-full h-48 object-cover"
               />
@@ -81,7 +87,9 @@ export default function ViewItems() {
                 (img, i) => (
                   <img
                     key={i}
-                    src={`http://localhost:5000/uploads/${img}`}
+                    src={`${
+                      import.meta.env.VITE_REACT_APP_BACKEND_URL
+                    }/uploads/${img}`}
                     alt={`preview-${i}`}
                     className="h-28 w-28 object-cover rounded shadow-sm"
                   />

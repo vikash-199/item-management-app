@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -25,9 +26,14 @@ export default function AddItem() {
 
     try {
       setLoading(true);
-      await axios.post("http://localhost:5000/api/items", data, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+      // eslint-disable-next-line no-undef
+      await axios.post(
+        `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/api/items`,
+        data,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
 
       alert("✅ Item successfully added");
       navigate("/");
